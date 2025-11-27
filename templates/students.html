@@ -37,6 +37,7 @@
 <section>
 
     <h2>Students</h2>
+      <a class="btn btn-warning my-2 my-sm-0 m-3" href="{% url "add_student" %}"  type="submit">Add Student</a>
 <div class="table-wrapper">
     <table class="fl-table">
         <thead>
@@ -46,6 +47,7 @@
             <th> Email </th>
             <th> Course </th>
             <th> Trainer </th>
+            <th> Action </th>
         </tr>
 
         </thead>
@@ -58,6 +60,12 @@
             <td>{{ s.Email }}</td>
             <td>{{ s.Enrolled_course }}</td>
             <td>{{ s.Trainer }}</td>
+             <td>
+              <a class="btn btn-primary" href='{% url "view_student" s.id %}' > View </a>
+              <a class="btn btn-success" href='{% url "edit_student" s.id %}' > Edit </a>
+              <a class="btn btn-danger" href='{% url "delete_student" s.id %}'  > Delete </a>
+              
+            </td>
             
         </tr>
         {% endfor %}
